@@ -4,13 +4,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
 
-    // If form is not present, stop (safety check)
+    // Safety check
     if (!form) return;
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // Collect data using name attributes (best practice)
         const data = {
             fullName: form.fullName?.value.trim(),
             email: form.email?.value.trim(),
@@ -18,20 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
             city: form.city?.value.trim()
         };
 
-        // Basic frontend validation
         if (!data.fullName || !data.email || !data.mobile || !data.city) {
             alert("Please fill all fields");
             return;
         }
 
         try {
-            const response = await fetch("https://realtrust-dnd2.onrender.com", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+            const response = await fetch(
+                "https://realtrust-dnd2.onrender.com/api/contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
 
             const result = await response.json();
 
@@ -48,30 +49,49 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-// NEWSLETTER SUBSCRIPTION
+
+
+// ================= NEWSLETTER SUBSCRIPTION =================
+
 document.addEventListener("DOMContentLoaded", () => {
     const subscribeForm = document.getElementById("subscribeForm");
 
-    if (subscribeForm) {
-        subscribeForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
+    if (!subscribeForm) return;
 
-            const email = subscribeForm.email.value;
+    subscribeForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-            try {
-                const res = await fetch("https://realtrust-dnd2.onrender.com", {
+        const email = subscribeForm.email.value.trim();
+
+        if (!email) {
+            alert("Please enter your email");
+            return;
+        }
+
+        try {
+            const res = await fetch(
+                "https://realtrust-dnd2.onrender.com/api/subscribe",
+                {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
                     body: JSON.stringify({ email })
-                });
+                }
+            );
 
-                const result = await res.json();
-                alert(result.message);
+            const result = await res.json();
+
+            if (res.ok) {
+                alert(result.message || "Subscribed successfully");
                 subscribeForm.reset();
-            } catch (err) {
-                alert("Subscription failed");
+            } else {
+                alert(result.message || "Subscription failed");
             }
-        });
-    }
-});
 
+        } catch (err) {
+            console.error(err);
+            alert("Subscription failed");
+        }
+    });
+});

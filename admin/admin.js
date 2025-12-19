@@ -1,11 +1,13 @@
-// LOGIN
+// ================= ADMIN LOGIN =================
 const loginForm = document.getElementById("adminLogin");
 if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        if (e.target[0].value === "admin@realtrust.com" &&
-            e.target[1].value === "admin123") {
+        if (
+            e.target[0].value === "admin@realtrust.com" &&
+            e.target[1].value === "admin123"
+        ) {
             window.location.href = "admin-dashboard.html";
         } else {
             alert("Invalid admin credentials");
@@ -13,9 +15,10 @@ if (loginForm) {
     });
 }
 
-// LOAD CONTACTS
+
+// ================= LOAD CONTACTS =================
 async function loadContacts() {
-    const res = await fetch("https://realtrust-dnd2.onrender.com");
+    const res = await fetch("https://realtrust-dnd2.onrender.com/api/contact");
     const data = await res.json();
 
     const div = document.getElementById("contacts");
@@ -29,9 +32,10 @@ async function loadContacts() {
     });
 }
 
-// LOAD SUBSCRIBERS
+
+// ================= LOAD SUBSCRIBERS =================
 async function loadSubscribers() {
-    const res = await fetch("https://realtrust-dnd2.onrender.com");
+    const res = await fetch("https://realtrust-dnd2.onrender.com/api/subscribe");
     const data = await res.json();
 
     const div = document.getElementById("subscribers");
@@ -41,7 +45,9 @@ async function loadSubscribers() {
         div.innerHTML += `<p>${s.email}</p>`;
     });
 }
-// ADD PROJECT
+
+
+// ================= ADD PROJECT =================
 document.getElementById("projectForm")?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -51,11 +57,14 @@ document.getElementById("projectForm")?.addEventListener("submit", async (e) => 
         description: e.target.description.value
     };
 
-    const res = await fetch("https://realtrust-dnd2.onrender.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
+    const res = await fetch(
+        "https://realtrust-dnd2.onrender.com/api/projects",
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        }
+    );
 
     const result = await res.json();
     alert(result.message);
@@ -63,9 +72,10 @@ document.getElementById("projectForm")?.addEventListener("submit", async (e) => 
     loadProjects();
 });
 
-// VIEW PROJECTS
+
+// ================= VIEW PROJECTS =================
 async function loadProjects() {
-    const res = await fetch("https://realtrust-dnd2.onrender.com");
+    const res = await fetch("https://realtrust-dnd2.onrender.com/api/projects");
     const data = await res.json();
 
     const div = document.getElementById("projectList");
@@ -81,7 +91,9 @@ async function loadProjects() {
         `;
     });
 }
-// ADD CLIENT
+
+
+// ================= ADD CLIENT =================
 document.getElementById("clientForm")?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -92,11 +104,14 @@ document.getElementById("clientForm")?.addEventListener("submit", async (e) => {
         description: e.target.description.value
     };
 
-    const res = await fetch("https://realtrust-dnd2.onrender.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
+    const res = await fetch(
+        "https://realtrust-dnd2.onrender.com/api/clients",
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        }
+    );
 
     const result = await res.json();
     alert(result.message);
@@ -104,9 +119,10 @@ document.getElementById("clientForm")?.addEventListener("submit", async (e) => {
     loadClients();
 });
 
-// VIEW CLIENTS
+
+// ================= VIEW CLIENTS =================
 async function loadClients() {
-    const res = await fetch("https://realtrust-dnd2.onrender.com");
+    const res = await fetch("https://realtrust-dnd2.onrender.com/api/clients");
     const data = await res.json();
 
     const div = document.getElementById("clientList");
@@ -123,6 +139,9 @@ async function loadClients() {
         `;
     });
 }
+
+
+// ================= SECTION TOGGLE =================
 function showSection(id) {
     document.querySelectorAll(".admin-section").forEach(sec => {
         sec.style.display = "none";
