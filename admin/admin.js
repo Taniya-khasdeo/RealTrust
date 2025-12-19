@@ -15,7 +15,7 @@ if (loginForm) {
 
 // LOAD CONTACTS
 async function loadContacts() {
-    const res = await fetch("http://localhost:5000/api/contact");
+    const res = await fetch("https://realtrust-dnd2.onrender.com");
     const data = await res.json();
 
     const div = document.getElementById("contacts");
@@ -31,7 +31,7 @@ async function loadContacts() {
 
 // LOAD SUBSCRIBERS
 async function loadSubscribers() {
-    const res = await fetch("http://localhost:5000/api/subscribe");
+    const res = await fetch("https://realtrust-dnd2.onrender.com");
     const data = await res.json();
 
     const div = document.getElementById("subscribers");
@@ -51,7 +51,7 @@ document.getElementById("projectForm")?.addEventListener("submit", async (e) => 
         description: e.target.description.value
     };
 
-    const res = await fetch("http://localhost:5000/api/projects", {
+    const res = await fetch("https://realtrust-dnd2.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -65,7 +65,7 @@ document.getElementById("projectForm")?.addEventListener("submit", async (e) => 
 
 // VIEW PROJECTS
 async function loadProjects() {
-    const res = await fetch("http://localhost:5000/api/projects");
+    const res = await fetch("https://realtrust-dnd2.onrender.com");
     const data = await res.json();
 
     const div = document.getElementById("projectList");
@@ -92,7 +92,7 @@ document.getElementById("clientForm")?.addEventListener("submit", async (e) => {
         description: e.target.description.value
     };
 
-    const res = await fetch("http://localhost:5000/api/clients", {
+    const res = await fetch("https://realtrust-dnd2.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -106,7 +106,7 @@ document.getElementById("clientForm")?.addEventListener("submit", async (e) => {
 
 // VIEW CLIENTS
 async function loadClients() {
-    const res = await fetch("http://localhost:5000/api/clients");
+    const res = await fetch("https://realtrust-dnd2.onrender.com");
     const data = await res.json();
 
     const div = document.getElementById("clientList");
