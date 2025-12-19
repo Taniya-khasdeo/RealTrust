@@ -1,0 +1,325 @@
+/* ================= GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f4f6fb;
+    color: #2b3a67;
+    min-height: 100vh;
+}
+
+/* ================= LOGIN PAGE ================= */
+.admin-login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-login-card {
+    background: #ffffff;
+    padding: 40px 35px;
+    width: 360px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(43, 58, 103, 0.2);
+    text-align: center;
+}
+
+.admin-login-card h2 {
+    margin-bottom: 25px;
+    color: #2b3a67;
+}
+
+.admin-login-card input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1.5px solid #d0d6e8;
+    border-radius: 6px;
+    outline: none;
+}
+
+.admin-login-card input:focus {
+    border-color: #4b63a6;
+}
+
+.admin-login-card button {
+    width: 100%;
+    padding: 12px;
+    background: #f47c2c;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-login-card button:hover {
+    background: #e46f23;
+}
+
+/* ================= DASHBOARD ================= */
+.admin-header {
+    background: #2b3a67;
+    padding: 18px 40px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h2 {
+    font-size: 22px;
+}
+
+.admin-logout {
+    background: #f47c2c;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ================= DASHBOARD LAYOUT ================= */
+.admin-container {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+    width: 220px;
+    background: #1f2233;
+    padding: 30px 0;
+}
+
+.admin-sidebar button {
+    width: 100%;
+    padding: 14px 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.admin-sidebar button:hover,
+.admin-sidebar button.active {
+    background: #4b63a6;
+}
+
+/* MAIN CONTENT */
+.admin-content {
+    flex: 1;
+    padding: 30px 40px;
+    background: #f4f6fb;
+}
+
+/* ================= DATA CARDS ================= */
+.data-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.data-card h4 {
+    margin-bottom: 10px;
+    color: #2b3a67;
+}
+
+.data-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ================= TABLE ================= */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e4e8f5;
+    text-align: left;
+    font-size: 14px;
+}
+
+.admin-table th {
+    background: #4b63a6;
+    color: #ffffff;
+}
+
+.admin-table tr:hover {
+    background: #f1f4ff;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.btn-delete {
+    background: #f47c2c;
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-delete:hover {
+    background: #e46f23;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        display: flex;
+    }
+
+    .admin-sidebar button {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .admin-content {
+        padding: 20px;
+    }
+
+    .admin-login-card {
+        width: 90%;
+    }
+}
+/* ================= PROJECT & CLIENT MANAGEMENT ================= */
+
+.admin-section {
+    margin-top: 30px;
+}
+
+.admin-section h3 {
+    color: #2b3a67;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* ---------- FORMS ---------- */
+.admin-section form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.admin-section form input,
+.admin-section form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    border: 1.5px solid #d0d6e8;
+    outline: none;
+    font-size: 14px;
+}
+
+.admin-section form textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.admin-section form input:focus,
+.admin-section form textarea:focus {
+    border-color: #4b63a6;
+}
+
+.admin-section form button {
+    background: #f47c2c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-section form button:hover {
+    background: #e46f23;
+}
+
+/* ---------- LIST GRID ---------- */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* ---------- CARD ---------- */
+.data-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.data-card:hover {
+    transform: translateY(-4px);
+}
+
+.data-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.data-card h4 {
+    color: #2b3a67;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.data-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* CLIENT DESIGNATION */
+.data-card .designation {
+    color: #4b63a6;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .admin-section form {
+        max-width: 100%;
+    }
+
+    .data-card img {
+        height: 140px;
+    }
+}

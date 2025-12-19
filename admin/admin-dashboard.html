@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="admin-header">
+    <h2>Admin Dashboard</h2>
+    <button class="admin-logout">Logout</button>
+</header>
+
+<!-- MAIN CONTAINER -->
+<div class="admin-container">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+        <button onclick="showSection('projectsSection')">Projects</button>
+        <button onclick="showSection('clientsSection')">Clients</button>
+        <button onclick="showSection('contactsSection')">Contacts</button>
+        <button onclick="showSection('subscribersSection')">Subscribers</button>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="admin-content">
+
+        <!-- ✅ PROJECT SECTION (ADD HERE) -->
+        <section id="projectsSection" class="admin-section">
+            <h3>Add Project</h3>
+
+            <form id="projectForm">
+                <input type="text" name="image" placeholder="Project Image URL" required>
+                <input type="text" name="name" placeholder="Project Name" required>
+                <textarea name="description" placeholder="Project Description" required></textarea>
+                <button type="submit">Add Project</button>
+            </form>
+
+            <div id="projectList" class="admin-grid"></div>
+        </section>
+
+        <!-- ✅ CLIENT SECTION -->
+        <section id="clientsSection" class="admin-section" style="display:none;">
+            <h3>Add Client</h3>
+
+            <form id="clientForm">
+                <input type="text" name="image" placeholder="Client Image URL" required>
+                <input type="text" name="name" placeholder="Client Name" required>
+                <input type="text" name="designation" placeholder="Designation" required>
+                <textarea name="description" placeholder="Client Description" required></textarea>
+                <button type="submit">Add Client</button>
+            </form>
+
+            <div id="clientList" class="admin-grid"></div>
+        </section>
+
+        <!-- CONTACTS -->
+        <section id="contactsSection" class="admin-section" style="display:none;">
+            <div id="contacts"></div>
+        </section>
+
+        <!-- SUBSCRIBERS -->
+        <section id="subscribersSection" class="admin-section" style="display:none;">
+            <div id="subscribers"></div>
+        </section>
+
+    </main>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
