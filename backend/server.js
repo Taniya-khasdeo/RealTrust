@@ -19,8 +19,19 @@ const app = express();
 // Connect Database
 connectDB();
 
+// ✅ UPDATED CORS MIDDLEWARE
+app.use(
+  cors({
+    origin: [
+      process.env.FRONTEND_URL,
+      process.env.ADMIN_URL,
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 // Middlewares
-app.use(cors());
 app.use(express.json());
 
 // Routes
@@ -34,5 +45,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-
